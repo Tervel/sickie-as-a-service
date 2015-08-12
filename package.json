@@ -13,5 +13,18 @@
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "description": "For when thinking of an excuse is too damn hard.",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tervel/sickie-as-a-service.git"
+  },
+  "author": "Jordan A.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tervel/sickie-as-a-service/issues"
+  },
+  "homepage": "https://github.com/Tervel/sickie-as-a-service#readme"
 }
