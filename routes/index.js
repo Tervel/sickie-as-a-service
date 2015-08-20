@@ -17,7 +17,6 @@ router.get('/:name/:illness', function(req, res, next) {
   var output = util.format("%s %s", name, illness);
 
   res.render('sickie', { message: output });
-  // res.send(output);
 });
 
 /* GET illness stub example. */
