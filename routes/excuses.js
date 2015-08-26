@@ -26,20 +26,12 @@ router.get('/:name/:illness', function(req, res, next) {
   var illness = util.format("- %s", req.params.illness);
   var output = util.format("%s %s", name, illness);
 
-  res.render('sickie', { message: output });
+  FormatOutput(res, output);
 });
 
 /* GET illness stub example. */
 router.get('/days/:name/:illness', function(req, res, next) {
   var name = util.format("Mate, %s for days.", req.params.name);
-  var illness = util.format("- %s", req.params.illness);
-  var output = util.format("%s %s", name, illness);
-
-  res.render('sickie', { message: output });
-});
-
-router.get('/json/:name/:illness', function(req, res, next) {
-  var name = util.format("Mate, %s for test.", req.params.name);
   var illness = util.format("- %s", req.params.illness);
   var output = util.format("%s %s", name, illness);
 
