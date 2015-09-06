@@ -16,6 +16,9 @@ function FormatOutput(res, output) {
     },
     "text/html": function() {
         return res.render('sickie', { message: output });
+    },
+    "application/xml": function() {
+        return res.render('xml', { message: output });
     }
   });
 }
