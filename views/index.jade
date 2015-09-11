@@ -1,5 +1,40 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div(class="container")
+        div(class="panel panel-default")
+            div(class="panel-body")
+                h1=title
+                p Welcome to #{title}
+
+        div(class="content" style="margin-left:50px;")
+            h2(id="introduction") Introduction
+            p test test test
+
+            h2(id="api") API
+            p test test test
+
+            h2(class="contentnegotiation") Content Negotiation
+            p test test test
+
+            ul
+                li text/plain - Content will be returned as a plain string.
+                li application/json - Content will be returned as a JSON object code
+                code { message: 'message', subtitle: 'subtitle' }
+                li text/html - Content will be returned as an HTML page with a twitter bootstrap hero unit, containing the message and the subtitle.
+                li application/xml - Content will be returned as a XML document.
+
+            h2(class="operations") Operations
+
+            table(class="table")
+                tr
+                    th Path
+                    th Description
+                tr
+                    td
+                        code /:name/:illness
+                    td Will return a sickness
+                tr
+                    td
+                        code days/:name/:illness
+                    td Will also return a sickness
