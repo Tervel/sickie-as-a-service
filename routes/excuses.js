@@ -6,39 +6,37 @@ var router = express.Router();
 'use strict';
 
 /* Formats output as requested */
-function FormatOutput(res, output) {
+function FormatOutput(res, message, subtitle) {
   res.format({
     "text/plain": function() {
-        return res.send(output);
+        return res.send(util.format("%s %s", message, subtitle));
     },
     "application/json": function() {
-        return res.send(JSON.stringify({ message: output }, null, 3));
+        return res.send(JSON.stringify({ message: message, subtitle: subtitle }, null, 3));
     },
     "text/html": function() {
-        return res.render('sickie', { message: output });
+        return res.render('sickie', { message: message, subtitle: subtitle });
     },
     "application/xml": function() {
-        return res.render('xml', { message: output });
+        return res.render('xml', { message: message, subtitle: subtitle });
     }
   });
 }
 
 /* GET default illness. */
 router.get('/:name/:illness', function(req, res, next) {
-  var name = util.format("Mate, %s.", req.params.name);
-  var illness = util.format("- %s", req.params.illness);
-  var output = util.format("%s %s", name, illness);
+  var message = util.format("Mate, %s.", req.params.illness);
+  var subtitle = util.format("- %s", req.params.name);
 
-  FormatOutput(res, output);
+  FormatOutput(res, message, subtitle);
 });
 
 /* GET illness stub example. */
 router.get('/days/:name/:illness', function(req, res, next) {
-  var name = util.format("Mate, %s for days.", req.params.name);
-  var illness = util.format("- %s", req.params.illness);
-  var output = util.format("%s %s", name, illness);
+  var message = util.format("Mate, %s for days.", req.params.illness);
+  var subtitle = util.format("- %s", req.params.name);
 
-  FormatOutput(res, output);
+  FormatOutput(res, message, subtitle);
 });
 
 module.exports = router;

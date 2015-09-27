@@ -8,7 +8,6 @@ var fs = require('fs');
 
 var routes = require('./routes/index');
 var excuses = require('./routes/excuses');
-var users = require('./routes/users');
 
 var app = express();
 
