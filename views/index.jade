@@ -1,40 +1,35 @@
 extends layout
 
 block content
-    div(class="container")
-        div(class="panel panel-default")
-            div(class="panel-body")
-                h1=title
-                p Welcome to #{title}
+  div(class="container")
+    div(class="panel panel-default")
+      div(class="panel-body")
+        h1=title
+        p Welcome to #{title}
 
-        div(class="content" style="margin-left:50px;")
-            h2(id="introduction") Introduction
-            p test test test
+    div(class="content" style="margin-left:5em;")
+      h2(id="introduction") Introduction
+      p Sickie as a service provides a modern, RESTful, scalable solution for when thinking of an excuse is too damn hard.
 
-            h2(id="api") API
-            p test test test
+      h2(id="api") API
 
-            h2(class="contentnegotiation") Content Negotiation
-            p test test test
+      h2(class="contentnegotiation")
+        small Content Negotiation
+      p Sickie as a service will respond to the following 'Accept:' values
 
-            ul
-                li text/plain - Content will be returned as a plain string.
-                li application/json - Content will be returned as a JSON object code
-                code { message: 'message' }
-                li text/html - Content will be returned as an HTML page with a twitter bootstrap hero unit, containing the message and the subtitle.
-                li application/xml - Content will be returned as a XML document.
+      ul
+        li text/plain - Content will be returned as a plain string.
+        li application/json - Content will be returned as a JSON object code
+          code { message: 'message', subtitle: 'subtitle' }
+        li text/html - Content will be returned as an HTML page with a twitter bootstrap hero unit, containing the message and the subtitle.
+        li application/xml - Content will be returned as a XML document.
 
-            h2(class="operations") Operations
+      h2(class="operations") 
+        small Operations
 
-            table(class="table")
-                tr
-                    th Path
-                    th Description
-                tr
-                    td
-                        code /:name/:illness
-                    td Will return a sickness
-                tr
-                    td
-                        code days/:name/:illness
-                    td Will also return a sickness
+      table(class="table")
+        each excuse, key in excuses
+          tr
+            td
+              code /#{key}/:recipient/:sender
+            td #{excuse}
